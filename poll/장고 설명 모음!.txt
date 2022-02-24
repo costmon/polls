@@ -1,0 +1,7 @@
+장고 설명 모음!
+
+프로젝트 생성 - cmd에서 작성
+polls(프로젝트폴더) > django-admin startproject config .
+
+앱 생성- 파이참 또는 cmd 작성
+python manage.py startapp poll
