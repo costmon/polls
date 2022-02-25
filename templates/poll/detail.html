@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>설문 항목</title>
+    <style>
+        form{width: 500px; margin: 30px 20px;}
+    </style>
+</head>
+<body>
+<!--
+   <h2>{{ question.question_text }}</h2>
+    <ul>
+       {% for choice in question.choice_set.all %}
+      <li>{{ choice.choice_text }}</li>
+       {% endfor %}
+    </ul>
+-->
+<form action="" method="post">
+    {% csrf_token %}   <!--  필수 입력(보안)   -->
+    <fieldset>
+        <legend>{{ question.question_text }}</legend>
+        {%  for choice in question.choice_set.all %}
+        <p>
+            <input type="radio" name="choice">
+            <label>{{ choice.choice_text }}</label>
+        </p>
+        {% endfor %}
+    </fieldset>
+    <p><input type="submit" value="투표"></p>
+</form>
+</body>
+</html>

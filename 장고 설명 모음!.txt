@@ -29,3 +29,18 @@ python manage.py migrate
 1. url 경로
 2. 제어함수
 3. 탬플릿- html
+
+장고 명령문
+컨트롤 +c - 명령창 생성
+exit() - 종료
+save() - 저장
+##.objects.all() - 모두 불러오기
+##_set.all() - 저장값 모두 불러오기 
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+관리자 아이디/비밀번호 생성
+
+python manage.py createsuperuser
