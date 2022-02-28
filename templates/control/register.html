@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 가입</title>
+    <link rel="stylesheet" href="{% static 'poll/style.css' %}">
+</head>
+<body>
+    <div id="container">
+        <section>
+            <h1>회원 가입</h1>
+            <from action="" method="post">
+                {% csrf_token %}
+                <p>
+                    <label for="userid">아이디</label>
+                    <input type="text" id="userid" name="userid">
+                </p>
+                <p>
+                    <label for="email">이메일</label>
+                    <input type="text" id="email" name="email">
+                </p>
+                <p><input type="submit" value="가입"></p>
+            </from>
+        </section>
+    </div>
+</body>
+</html>

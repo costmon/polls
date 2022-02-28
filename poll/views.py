@@ -12,14 +12,21 @@ def detail(request, pk):
     return render(request, 'poll/detail.html', {'question':question})
 
 def vote(request, pk):
-    pass
-
-def cart(request):
-    cart = "계란"
-    cartlist = ["계란", "두부", "커피"]
-    return render(
-        request,
-        'poll/cart.html',
-        {'cart':cart,'cartlist':cartlist}
-    )
+    #투표하기
+    question = Question.objects.get(id=pk)
+    if request.method == "POST":
+        # 선택 항목 받아 오기
+        try:
+            choice = request.POST['choice']
+        except:
+            error = "항목을 선택하세요"
+            return render(request, 'poll/detail.html',
+                         {'question': question, 'error':error})
+        else:
+            sel_choice = question.choice.set.get(id=choice) #id로 db에서 검색
+            sel_choice.votes += 1  # 1 증가
+            sel_choice.save()      # 저장하기
+            return render(request, 'poll/result.html', {'question':question})
+    else:
+        return render(request, 'poll/detail.html', id=pk)
 

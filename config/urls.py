@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),    #127.0.0.1:8000
     path('poll/', include('poll.urls')),
+    path('control/', include('control.urls')),
 ]

@@ -44,3 +44,10 @@ python manage.py migrate
 관리자 아이디/비밀번호 생성
 
 python manage.py createsuperuser
+
+-프로젝트 생성
+
+polls>django-admin startproject polls config .
+
+-앱 생성(터미널,cmd)
+python manage.py startapp poll

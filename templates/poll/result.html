@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>투표 결과</title>
+    <link rel="stylesheet" href="{% static 'poll/style.css' %}">
+</head>
+<body>
+    <div id="container">
+        <section>
+            <h2>{{ question.question_text }}</h2>
+            <ul>
+                {% for choice in question.choice_set.all() %}
+                <li>
+                    {{ choice.choice_text }} -- {{ choice.votes }}votes
+                </li>
+                {% endfor %}
+<!--                <p><a href="{% url'poll:index %}">설문 목록</a></p>&ndash;&gt;-->
+                <p><button type="button" onclick="location.href='/poll/'"> 설문목록</button></p>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
