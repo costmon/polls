@@ -1,14 +1,19 @@
 {% load static %}
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>설문 항목</title>
     <link rel="stylesheet" href="{% static 'poll/style.css' %}">
-    <style>
-        form{width: 500px; margin: 30px 20px;}
-    </style>
 </head>
 <body>
+    <!--
+    <h2>{{ question.question_text }}</h2>
+    <ul>
+        {% for choice in question.choice_set.all %}
+        <li>{{ choice.choice_text }}</li>
+        {% endfor %}
+    </ul>
+-->
     <div id="container">
         <section>
             <form action="{% url 'poll:vote' question.id %}" method="post">
@@ -17,7 +22,7 @@
                 <fieldset>
                     <legend>{{ question.question_text }}</legend>
                     {% if error %}
-                        <p>{{ error }}</p>
+                         <p class="error">{{ error }}</p>
                     {% endif %}
                     {%  for choice in question.choice_set.all %}
                     <p>

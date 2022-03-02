@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>for loop 예제</title>
@@ -20,12 +20,11 @@
                  <ul>
                      {% for item in items %}
                         {% if forloop.counter < 3 %}
-                        <li>{{ forloop.counter0 }}번째 줄입니다.</li>
+                        <li>{{ forloop.counter }}번째 줄입니다.</li>
                         {% endif %}
                      {% endfor %}
                 </ul>
             {% endif %}
-
         </section>
     </div>
 </body>
